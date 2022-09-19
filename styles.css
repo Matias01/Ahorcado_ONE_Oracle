@@ -1,0 +1,151 @@
+* {
+    padding: 0;
+    margin: 0;
+    background: #E5E5E5;
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 14px;
+}
+
+.barra {
+    margin-top: 20px;
+}
+
+.container {
+    width: 100%;
+    height: 500px;
+    display: grid;
+    align-items: center;
+}
+
+.botones {
+    display: flex;
+    margin-top: 150px;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    margin: 10px;
+}
+
+.boton-1 {
+    height: 69px;
+    background: #0A3871;
+    color: white;
+    border: 2px solid black;
+    padding: 24px 60px;
+    border-radius: 18px;
+}
+
+.boton-1:hover {
+    background: #1961ba;
+}
+
+.boton-1:active {
+    background: #0A3871;
+    padding: 20px 59px;
+    font-size: 13px;
+}
+
+.boton-2 {
+    height: 40px;
+    max-width: fit-content;
+    background: rgb(255, 255, 255);
+    color: #0A3871;
+    padding: 8px 28px;
+    border: 1px solid #0A3871;
+    border-radius: 16px;
+}
+
+.boton-2:hover {
+    background: rgb(240, 240, 240);
+}
+
+.boton-2:active {
+    background: rgb(255, 255, 255);
+    padding: 5px 27px;
+    font-size: 13px;
+}
+
+.add-word {
+    display: none;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-left: 30vw;
+}
+
+.add-word input {
+    margin-bottom: 250px;
+    width: 50%;
+    background: #E5E5E5;
+    border: 0 #E5E5E5;
+    font-size: 22px;
+    margin-right: 1vw;
+}
+
+.frame-1, .frame-3, .canvas .frame-4 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.add-word .frame-1 img {
+    width: 15px;
+    height: 15px;
+}
+
+.add-word .frame-3 .boton-1, .add-word .frame-3 .boton-2, .frame-4 .boton-1, .frame-4 .boton-2 {
+    height: 45px;
+    max-width: fit-content;
+    min-width: 15rem;
+    padding: 8px 28px;
+    border-radius: 14px;
+    border: 1px solid;
+    margin-left: 0;
+}
+
+.canvas {
+    display: none;
+}
+
+.canvas .frame-4 {
+    margin-left: 30vw;
+}
+
+footer {
+    text-align: center;
+    color: #343A40;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 800px) {
+    .boton-1 {
+        padding: 0 60px;
+    }
+
+    .add-word, .canvas .frame-4 {
+        margin-left: 5vw;
+    }
+
+    .add-word .frame-3 .boton-1, .add-word .frame-3 .boton-2, .frame-4 .boton-1, .frame-4 .boton-2 {
+        max-width: none;
+    }
+
+    .frame-3, .canvas .frame-4 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    
+}
+
+@media screen and (max-width: 470px) {
+    .frame-3, .canvas .frame-4 {
+        grid-template-columns: 1fr;
+    }
+
+    .add-word input {
+        width: 95vw;
+    }
+}

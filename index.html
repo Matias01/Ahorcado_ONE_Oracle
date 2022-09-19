@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ahorcado</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <nav class="barra">
+            <img src="imagenes/Logo.png" alt="logo">
+        </nav>
+
+        <section class="container" id="first-section">
+            <div class="botones" id="first-btn">
+                <button class="boton-1" id="start-game" onclick="startGame()">Iniciar Juego</button>
+                <button class="boton-2" id="add" onclick="addWord()">Agregar Palabra</button>
+            </div>
+
+            <div class="add-word" id="add-words">
+                <input id="new-word" type="text" placeholder="Ingrese una palabra">
+
+                <div class="frame-1" id="warm">
+                    <img src="imagenes/circle-exclamation-solid.svg" alt="alerta">
+                    <p>Máx. de 8 letras, solo MAYÚSCULAS</p>
+                </div>
+
+                <div class="frame-3">
+                    <button class="boton-1" onclick="saveWord()">Guardar y empezar</button>
+                    <button class="boton-2" onclick="cancel()">Cancelar</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="canvas" id="show-canvas" >
+            <canvas id="hanged" width="1200" height="800"></canvas>
+            
+            <div id="letters"></div>
+            
+            <div class="frame-4">
+                <button class="boton-1">Nuevo Juego</button>
+                <button class="boton-2" onclick="surrender()">Desistir</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>By Matias N. Bergamaschi</p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>
