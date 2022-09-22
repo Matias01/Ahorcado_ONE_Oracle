@@ -79,7 +79,9 @@ button {
     margin-bottom: 250px;
     width: 50%;
     background: #E5E5E5;
-    border: 0 #E5E5E5;
+    border: 0.25 solid #E5E5E5;
+    border-color: #dddddd;
+    border-radius: 7px;
     font-size: 22px;
     margin-right: 1vw;
 }
@@ -114,6 +116,10 @@ button {
     margin-left: 30vw;
 }
 
+#hanged {
+    width: 100%;
+}
+
 footer {
     text-align: center;
     color: #343A40;
@@ -137,7 +143,7 @@ footer {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
-    
+
 }
 
 @media screen and (max-width: 470px) {
