@@ -1,17 +1,16 @@
 let palabras = ["TETRIS", "SONIC", "SNOWBROS", "WARCRAFT", "PACMAN"];
 let tablero = document.getElementById("hanged").getContext("2d");
 let palabraSecreta = "";
-let errado = 100;
 let letraMostrada = false;
+let fin = false;
 let letrasErroneas = [];
 let letrasUsadas = [];
+let errado = 200;
 let cont = 0;
-let fin = false;
 
 function chooseSecretWord() {
     let palabra = palabras[Math.floor(Math.random() * palabras.length)];
     palabraSecreta = palabra;
-    console.log(palabraSecreta);
 }
 
 function startGame() {
@@ -29,7 +28,6 @@ function startGame() {
 function restartGame() {
     surrender()
     startGame()
-    letrasErroneas = [];
 }
 
 function paintCanvas() {
@@ -41,8 +39,8 @@ function paintCanvas() {
 
     tablero.fillRect(0,0,1200,800);
     tablero.beginPath();
-    tablero.moveTo(350,350);
-    tablero.lineTo(650,350);
+    tablero.moveTo(450,350);
+    tablero.lineTo(750,350);
     tablero.stroke();
     tablero.closePath();
 }
@@ -57,8 +55,8 @@ function paintLine() {
     let anchura = 700/palabraSecreta.length;
     
     for (let i = 0; i < palabraSecreta.length; i++) {
-        tablero.moveTo(100 + (anchura * i), 450);
-        tablero.lineTo(150 + (anchura * i), 450);
+        tablero.moveTo(200 + (anchura * i), 450);
+        tablero.lineTo(250 + (anchura * i), 450);
     }
 
     tablero.stroke();
@@ -103,7 +101,11 @@ function surrender() {
     document.getElementById("first-btn").style.display = "flex";
 
     letraMostrada = false;
-    errado = 100;
+    errado = 200;
+    letrasErroneas = [];
+    cont = 0;
+    letrasUsadas = []
+    fin = false
 }
 
 function pressLetter() {
@@ -115,10 +117,7 @@ const addLetter = (event) => {
         
     if (fin) {
             alert("Fin del Juego")
-            cont = 0;
             keyName = ""
-            letrasUsadas = []
-            fin = false
             restartGame();
     }
 
@@ -132,17 +131,14 @@ const addLetter = (event) => {
 
         for (const i in palabraSecreta) {
             if (keyName == palabraSecreta[i] && letrasErroneas.length<6) {
-                tablero.fillText(palabraSecreta[i],108 + (anchura * i),430);
+                tablero.fillText(palabraSecreta[i],208 + (anchura * i),430);
                 cont +=1;
             } else if (!palabraSecreta.includes(keyName) && !letrasErroneas.includes(keyName) && i == palabraSecreta.length-1) {
                 letrasErroneas.push(keyName);
                 letraMostrada = false;
             } else if (letrasErroneas.length>=6) {
                 alert("Fin del Juego")
-                cont = 0;
                 keyName = ""
-                letrasUsadas = []
-                fin = false
                 restartGame();
             }
         }
@@ -158,7 +154,7 @@ const addLetter = (event) => {
         }
 
         if (palabraSecreta.length == cont) {
-            tablero.fillText("Ganaste",550,60);
+            tablero.fillText("Ganaste",650,60);
             fin = true;
         }
 
@@ -169,39 +165,39 @@ const addLetter = (event) => {
 function paintHanged(i) {
     
     tablero.beginPath();
-    tablero.moveTo(400,350);
+    tablero.moveTo(500,350);
     
     switch (i) {
         case 1:
             // horca
-            tablero.lineTo(400,70);
-            tablero.lineTo(550,70);
-            tablero.lineTo(550,80);
+            tablero.lineTo(500,70);
+            tablero.lineTo(650,70);
+            tablero.lineTo(650,80);
             
             // persona
-            tablero.moveTo(585,115);
-            tablero.arc(550, 115, 35, 0, 2 * Math.PI);
+            tablero.moveTo(685,115);
+            tablero.arc(650, 115, 35, 0, 2 * Math.PI);
             break;
         case 2:
-            tablero.moveTo(550,150);
-            tablero.lineTo(550,250);
+            tablero.moveTo(650,150);
+            tablero.lineTo(650,250);
             break;
         case 3:
-            tablero.moveTo(550,150);
-            tablero.lineTo(500,175);
-            break;
-        case 4:
-            tablero.moveTo(550,150);
+            tablero.moveTo(650,150);
             tablero.lineTo(600,175);
             break;
+        case 4:
+            tablero.moveTo(650,150);
+            tablero.lineTo(700,175);
+            break;
         case 5:
-            tablero.moveTo(550,250);
-            tablero.lineTo(500,275);
+            tablero.moveTo(650,250);
+            tablero.lineTo(600,275);
             break;
         case 6:
-            tablero.moveTo(550,250);
-            tablero.lineTo(600,275);
-            tablero.fillText("Perdiste",660,60);
+            tablero.moveTo(650,250);
+            tablero.lineTo(700,275);
+            tablero.fillText("Perdiste",760,60);
             break;
     }
 

@@ -118,6 +118,7 @@ button {
 
 #hanged {
     width: 100%;
+    height: 860px;
 }
 
 footer {
@@ -144,14 +145,24 @@ footer {
         grid-template-columns: 1fr 1fr;
     }
 
+    #hanged {
+        width: 115vw;
+        height: 100vw;
+    }
+
 }
 
-@media screen and (max-width: 470px) {
+@media screen and (max-width: 480px) {
     .frame-3, .canvas .frame-4 {
         grid-template-columns: 1fr;
     }
 
     .add-word input {
         width: 95vw;
+    }
+
+    #hanged {
+        width: 120vw;
+        height: 500px;
     }
 }
